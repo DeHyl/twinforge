@@ -2,7 +2,7 @@
 
 ## Overview
 
-A unified project CRM for WCC (demolition & abatement) that aggregates data from 6 core tools — **Buildertrend, CompanyCam, Google Sheets, Gmail, Dropbox, and WhatsApp** — into a single timeline-driven view of every project from first lead to final closeout.
+A unified project CRM for WCC (demolition & abatement) that aggregates data from 6 core tools — **Buildertrend, CompanyCam, Google Sheets, Gmail, Dropbox, and WhatsApp** — into a single timeline-driven view of every project from first bid invite to final payment.
 
 **Goal:** No one should ever have to ask "what's the status of this project?" or dig through 4 different apps to piece together the story.
 
@@ -14,16 +14,13 @@ Each project moves through these phases:
 
 | Phase | Key Activities | Primary Data Sources |
 |-------|---------------|---------------------|
-| **1. Lead / Inquiry** | Initial contact, site info, scope | Gmail, WhatsApp, Google Sheets |
-| **2. Site Assessment** | Survey, hazmat inspection, scope definition | CompanyCam, Dropbox, Buildertrend |
-| **3. Bid / Proposal** | Estimate, proposal docs, negotiations | Google Sheets, Dropbox, Gmail |
-| **4. Contract** | Signed contract, insurance certs, bonds | Dropbox, Gmail, Buildertrend |
-| **5. Permitting & Regulatory** | EPA notifications, OSHA plans, city permits | Dropbox, Gmail |
-| **6. Pre-Construction** | Air monitoring setup, containment plans, scheduling | Buildertrend, CompanyCam, Dropbox |
-| **7. Active Work** | Daily logs, photos, waste manifests, change orders | CompanyCam, Buildertrend, WhatsApp |
-| **8. Clearance & Testing** | Air clearance, final inspections, test results | Dropbox, CompanyCam, Gmail |
-| **9. Closeout** | Final docs, lien waivers, warranty info, punch list | Dropbox, Buildertrend, Gmail |
-| **10. Invoicing & Payment** | Invoices, payment tracking, retainage | Buildertrend, Google Sheets, Gmail |
+| **1. Bid Invite / Lead** | Receive bid documents, review scope, go/no-go decision | Gmail, Dropbox, Google Sheets |
+| **2. Bid / Proposal** | Estimate, proposal docs, submit bid, negotiations | Google Sheets, Dropbox, Gmail |
+| **3. PO / Contract** | Purchase order, signed contract, insurance certs, bonds | Dropbox, Gmail, Buildertrend |
+| **4. Pre-Construction** | Scheduling, permits, containment plans, air monitoring setup, mobilization | Buildertrend, CompanyCam, Dropbox, Gmail |
+| **5. Execution** | Daily logs, photos, waste manifests, change orders, field comms | CompanyCam, Buildertrend, WhatsApp, Dropbox |
+| **6. Closeout** | Final docs, clearance reports, lien waivers, punch list, demobilization | Dropbox, Buildertrend, CompanyCam, Gmail |
+| **7. Invoicing & Payment** | Invoices, payment tracking, retainage release | Buildertrend, Google Sheets, Gmail |
 
 ---
 
@@ -113,7 +110,7 @@ projects
 ├── client_email (text)
 ├── client_phone (text)
 ├── project_manager_id (FK → users)
-├── current_phase (enum: lead → closeout)
+├── current_phase (enum: bid_invite, bid_proposal, po_contract, pre_construction, execution, closeout, invoicing)
 ├── status (enum: active, on_hold, completed, cancelled)
 ├── contract_value (decimal)
 ├── start_date (date)
