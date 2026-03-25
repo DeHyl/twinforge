@@ -154,6 +154,7 @@ async function main() {
   }
 
   const app = express();
+  app.set("trust proxy", 1); // Railway terminates TLS at the proxy
   app.use(express.json({ limit: "5mb" }));
 
   // Session middleware
